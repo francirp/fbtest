@@ -2,7 +2,11 @@ require 'open-uri'
 
 class PhotosController < ApplicationController
 
-  def display_photos
+
+    def start_photos
+    end
+
+    def display_photos
     friendid = params["friend_id"]
     access_token = params["access_token"]
 
@@ -12,8 +16,5 @@ class PhotosController < ApplicationController
     @owners = @all_photos[2]
     @comments_object_ids = @all_photos[3]
     @owners_user_ids = @all_photos[4]
-    #[@photos, @comments, @owners, @comments_object_ids, @owners_user_ids]
-
-  end
-
+    end
 end

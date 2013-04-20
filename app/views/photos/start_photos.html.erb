@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>Friendship Photos</title>
+</head>
+<body>
+  <h1>Facebook Friendship Photos</h1>
+  <p></p>
+
+
+<div class="row">
+  <div class="span6 offset6">
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label">Access Token:</label>
+          <div class="controls">
+            <input class="span3" type="text" placeholder="Facebook Access Token" id="token">
+          </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Enter Friend's ID:</label>
+          <div class="controls">
+            <input class="span3" type="text" placeholder="Facebook ID" id="suffix">
+            <button class="btn" type="button" href="http://localhost:3000/photos/" onclick="document.location.href = $(this).attr('href')+$('#suffix').val()+'?access_token='+$('#token').val(); return false;">Go!</button>
+          </div>
+      </div>
+    </form>
+  </div>
+</div>
