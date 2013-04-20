@@ -1,0 +1,75 @@
+<html>
+<head>
+  <title>Friendship Photos</title>
+</head>
+<body>
+  <h1>Facebook Friendship Photos</h1>
+  <p></p>
+
+
+<div class="row">
+  <div class="span6 offset6">
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label">Access Token:</label>
+          <div class="controls">
+            <input class="span3" type="text" placeholder="Facebook Access Token" id="token">
+          </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Enter Friend's ID:</label>
+          <div class="controls">
+            <input class="span3" type="text" placeholder="Facebook ID" id="suffix">
+            <button class="btn" type="button" href="http://localhost:3000/photos/" onclick="document.location.href = $(this).attr('href')+$('#suffix').val()+'?access_token='+$('#token').val(); return false;">Go!</button>
+          </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!--
+
+
+
+    <div class="input-append">
+      <input id="appendedInputButton" type="text" label>
+      <button class="btn" type="button">Go!</button>
+    </div>
+  </div>
+</div>
+ -->
+<ul>
+<% @photos.each do |photo| %>
+  <% if photo.caption != "" %>
+    <li><img src="<%= photo.photo_url %>">
+    <% @owners.each do |owner| %>
+      <% if owner.user_id == photo.owner %>
+        <h2>Posted By: <%= owner.full_name %></h2>
+        <h2>Posted On: <%= photo.created %></h2>
+      <% end %>
+    <% end %>
+    <h3>&#34;<%= photo.caption %>&#34;</h3>
+  <% else %>
+    <li><img src="<%= photo.photo_url %>">
+    <% @owners.each do |owner| %>
+      <% if owner.user_id == photo.owner %>
+        <h2>Posted By: <%= owner.full_name %></h2>
+        <h2>Posted On: <%= photo.created %></h2>
+      <% end %>
+    <% end %>
+  <% end %>
+      <% if @comments_object_ids.include?(photo.object_id) %>
+        <% @comments.each do |com| %>
+          <% if com.object_id == photo.object_id %>
+            <p><%= com.text %></p>
+          <% end %>
+        <% end %>
+      <% end %>
+    </li>
+<% end %>
+</ul>
+</body>
+</html>
+
+
+
