@@ -1,3 +1,6 @@
 FBTest queries Facebook for friendship photos between the user and a friend.
 
---next step is to add Facebook login capabilities.
+Once cloned to your system...
+If you go to http://localhost/3000/home you can put your access token and a friend's facebook ID to see facebook photos. To obtain access token, go to https://developers.facebook.com/tools/explorer and approve "user_photos" and "friends_photos".  To find a friend's facebook ID, add the field "friends" to the graph API explorer.
+
+Next steps are making it so that users do not need to go get an access token and can find a friend through a search bar instead of by entering an id number.
